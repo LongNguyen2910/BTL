@@ -63,13 +63,12 @@
             </div>
         </div>
     </nav>
-
     <div class="main container-fluid">
         <h1 class="text-center mt-2">Finance</h1>
         <div class="row wrapper">
-            <div class="nav row">
-                <div class="col-6 text-center h2 left-tab mb-0 p-1" onclick="showTab('income')" style="cursor: pointer;">Income</div>
-                <div class="col-6 text-center h2 right-tab mb-0 p-1" onclick="showTab('expense')" style="cursor: pointer;">Expense</div>
+            <div class="nav p-0">
+                <div class="left-tab h2" onclick="showTab('income')" style="cursor: pointer;">Income</div>
+                <div class="right-tab h2" onclick="showTab('expense')" style="cursor: pointer;">Expense</div>
             </div>
             <div class="income p-0" style="display: block;">
                 <div class="content row text-center mt-2" style="max-height: 900px; overflow-y: auto;">
@@ -111,11 +110,11 @@
                     <div class="col-1"></div>
                 </div>
             </div>
-            <div class="row statics p-1">
+            <div class="row statics p-1 p-2">
                 <div class="col p-0">
                     <div class="row container-mt-8">
                         <h4 class="col-4">Month: </h4>
-                        <select id="monthlyIncomeDropdown" class="form-select col-8" style="width: auto;" onchange="displayTotalIncome()">
+                        <select id="monthlyIncomeDropdown" class="form-select col-8" style="width: auto;" onchange="displayTotalIncome()" value="select a month">
                             <option selected>Select a month</option>
                             <option value="0">January</option>
                             <option value="1">February</option>
@@ -157,7 +156,6 @@
             </div>
         </div>
     </div>
-
     <script>
         function showTab(tab) {
             const incomeTab = document.querySelector('.income');
@@ -171,7 +169,6 @@
                 expenseTab.style.display = 'block';
             }
         }
-
         const openProlile = document.querySelector('.js-open-profile');
         const modal = document.querySelector('.user-menu');
         const stopModal = document.querySelector('.js-close-profile');
@@ -188,9 +185,24 @@
             event.stopPropagation();
         });
     </script>
-
-    <script src="finance.js"></script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.left-tab').addEventListener('click', function() {
+                this.style.backgroundColor = '#fff';
+                this.style.color = '#000';
+                
+                document.querySelector('.right-tab').style.backgroundColor = '#4FB8B8';
+                document.querySelector('.right-tab').style.color = '#000';
+            });
+        
+            document.querySelector('.right-tab').addEventListener('click', function() {
+                this.style.backgroundColor = '#fff';
+                this.style.color = '#000';
+                document.querySelector('.left-tab').style.backgroundColor = '#4FB8B8';
+                document.querySelector('.left-tab').style.color = '#000';
+            });
+        });
+        </script>
+        <script src="finance.js"></script>
 </body>
-
 </html>

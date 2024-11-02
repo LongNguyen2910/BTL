@@ -1,6 +1,7 @@
 let isAdding = false;
 let isEditing = false;
 let selectedRow = null;
+var check_date = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])$/;
 
 function Add() {
     if (isAdding || isEditing) return;
@@ -39,6 +40,11 @@ function Handle() {
     const dateInput = document.getElementById("date").value;
     const incomeInput = document.getElementById("income").value;
     const noteInput = document.getElementById("note").value; // Default to an empty string if noteInput is empty
+
+    if (!check_date.test(dateInput)) {
+        alert("Ngày không hợp lệ. Vui lòng nhập định dạng DD/MM.");
+        return;
+    }
 
     if (dateInput && incomeInput) {
         const activeTab = document.querySelector('.income').style.display === 'block' ? 'income-finance' : 'expense-finance';
@@ -92,6 +98,16 @@ function Edit() {
         noteCell.innerHTML = `<input type="text" id="editNote" value="${noteCell.textContent}" style="width: 100px;">`;
 
         isEditing = true;
+        document.getElementById("editDate").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                saveEdit();
+            }
+        });
+        document.getElementById("editIncome").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                saveEdit();
+            }
+        });
         document.getElementById("editNote").addEventListener("keyup", function(event) {
             if (event.key === "Enter") {
                 saveEdit();
@@ -103,7 +119,12 @@ function Edit() {
         const incomeInput = document.getElementById("editIncome").value;
         const noteInput = document.getElementById("editNote").value;
     
-        if (dateInput && incomeInput && noteInput) {
+        if (!check_date.test(dateInput)) {
+            alert("Ngày không hợp lệ. Vui lòng nhập định dạng DD/MM.");
+            return;
+        }
+
+        if (dateInput && incomeInput) {
             selectedRow.cells[0].textContent = dateInput;
             selectedRow.cells[1].textContent = `$${parseFloat(incomeInput).toFixed(2)}`;
             selectedRow.cells[2].textContent = noteInput;
@@ -201,7 +222,7 @@ displayCurrentYear();
 function calculateTotalIncome() {
     const totalIncome = monthlyIncomes.reduce((acc, income) => acc + income, 0);
     const total = document.getElementById('totalYear');
-    total.textContent = `$${total.toFixed(2)}`;
+    total.textContent = `$${totalIncome.toFixed(2)}`;
 }
 
 document.getElementById('totalYear').textContent = '$0.00';
