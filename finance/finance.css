@@ -1,0 +1,163 @@
+.navbar-brand img {
+    width: 40px;
+}
+.navbar-icon .icon-user{
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.navbar ul li:last-child {
+    display: flex;
+    border: 0;
+    cursor: pointer;
+}
+
+button {
+    border: 0;
+}
+
+.navbar ul li:hover {
+    color: #ccc;
+}
+
+.icon-log-out {
+    color: #fff;
+}
+.navbar-icon a {
+    color: #fff !important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar-collapse {
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.navbar-toggler p{
+    color: #fff;
+}
+
+.navbar-collapse a {
+    color: #fff;
+}
+
+.navbar-nav div {
+    display: flex;
+    border: 0;
+}
+
+.nav-item {
+    padding-left: 10px;
+}
+.navbar-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-menu{
+    border-radius: 10px;
+    position: absolute;
+    background-color: #fff;
+    width: 320px;
+    top: 65px;
+    left: -260px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none;
+}
+
+.user-menu.open {
+    display: block;
+}
+
+.user-menu p {
+    padding: 5px 15px;
+}
+
+.user-menu p:hover {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.more {
+    border: 2px solid #000;
+    position: absolute;
+    font-size: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    top: 33px;
+    left: 30px;
+}
+
+.row {
+    width: 90%;
+}
+
+html, body {
+    height: 100%;
+}
+
+.main > .row {
+    border: 2px solid #000;
+    margin: 0 auto;
+}
+
+.main .right-tab {
+    background-color: #4FB8B8; 
+}
+
+.wrapper .row {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.main .add-button::before {
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #10F6FE;
+}
+
+.main .remove-button::before {
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #F20C0C;
+}
+
+.main .statics {
+    background-color: #ccc;
+    border-top: 2px solid #000;
+}
+
+.main .modify h5{
+    background-color: #fff;
+    line-height: 50px;
+    border-radius: 10px;
+}
+
+.main .modify h5:hover{
+    background-color: #4FB8B8;
+}
+
+.wrapper .row {
+    width: 100%;
+}
+
+.expense {
+    display: none;
+}
+
+.left-tab.bg {
+    background-color: #4FB8B8;
+}
+
+.right-tab.bg {
+    background-color: #fff;
+}

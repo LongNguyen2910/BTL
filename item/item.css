@@ -1,0 +1,210 @@
+
+body {
+    background-image: url(../assets/img/cafe_bg.png);
+    background-size: cover;
+}
+.navbar-brand img {
+    width: 40px;
+}
+.navbar-icon .icon-user{
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.navbar ul li:last-child {
+    display: flex;
+    border: 0;
+    cursor: pointer;
+}
+
+button {
+    border: 0;
+}
+
+.navbar ul li:hover {
+    color: #ccc;
+}
+
+.icon-log-out {
+    color: #fff;
+}
+.navbar-icon a {
+    color: #fff !important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar-collapse {
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.navbar-toggler p{
+    color: #fff;
+}
+
+.navbar-collapse a {
+    color: #fff;
+}
+
+.navbar-nav div {
+    display: flex;
+    border: 0;
+}
+
+.nav-item {
+    padding-left: 10px;
+}
+.navbar-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-menu{
+    border-radius: 10px;
+    position: absolute;
+    background-color: #fff;
+    width: 320px;
+    top: 65px;
+    left: -260px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none;
+}
+
+.user-menu.open {
+    display: block;
+}
+
+.user-menu p {
+    padding: 5px 15px;
+}
+
+.user-menu p:hover {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.more {
+    border: 2px solid #000;
+    position: absolute;
+    font-size: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    top: 33px;
+    left: 30px;
+}
+
+.row {
+    width: 90%;
+}
+
+html, body {
+    height: 100%;
+}
+.popular-products {
+    background-color: #FFC9B9;
+}
+
+.popular-products, .best-seller {
+    width: 30%;
+    background-color: #FFCCE0;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.popular-products h2, .best-seller h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.button-margin {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.button-margin button {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40%;
+    font-size: 15px;
+}
+.button-margin button:last-child {
+    margin-left: 40%;
+}
+.button-margin button:first-child {
+    margin-top: 40%;
+}
+
+table {
+    box-sizing: border-box;
+    background-color: #FFCCE0;
+}
+.best-seller .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.best-seller .item {
+    background-color: #D3D3D3;
+    padding: 40%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* For Mobile and Tablet */
+@media only screen and (max-width: 64em){
+    .container {
+        flex-direction: column;
+        position: relative;
+    }
+    .popular-products, .best-seller {
+        width: 100%;
+        margin: 5px auto;
+    }
+    .best-seller {
+        margin-bottom: 20px;
+    }
+}
+/* For Mobile: width < 724px */
+@media only screen and (max-width: 724px){    
+    .container {
+        flex-direction: column;
+        position: relative;
+    }
+    .popular-products, .best-seller {
+        width: 100%;
+        margin: 5px auto;
+    }
+    .best-seller {
+        margin-bottom: 20px;
+    }
+}
+/* For Tablet: width >= 740px and width < 1024px */
+@media only screen and (min-width: 740px) and (max-width: 1025px){
+    .button-margin button{
+        margin-top: 10%;
+        font-size: 30px;
+    }
+    .scrollable-container{
+        font-size: 30px;
+    }
+    .popular-products h2, .best-seller h2 {
+        font-size: 50px;
+    }
+    .best-seller .item {
+        font-size: 100px;
+    }
+    .button-margin button:first-child {
+        margin-top: 20%;
+    }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="../assets/img/coffee.png" type="image/x-icon" />
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid justify-content-center">
+            <div class="row">
+                <a class="navbar-brand col-2" href="../dashboard/dashboard.html">
+                    <img src="../assets/img/logo.jpg" alt="Logo image" class="logo-image">
+                </a>
+                <button class="navbar-toggler col-3 offset-6" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse col-8" id="collapsibleNavbar">
+                    <ul class="navbar-nav me-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../dashboard/dashboard.html">
+                                <h3>Dashboard</h3>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../finance/finance.html">
+                                <h3>Finance</h3>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../employee/Employees-List.html">
+                                <h3>Employee</h3>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../item/item.html">
+                                <h3>Item</h3>
+                            </a>
+                        </li>
+                        <div class="navbar-toggler align-items-center" data-bs-toggle="collapse"
+                            data-bs-target="#collapsibleNavbar">
+                            <a class="nav-link" href="../index.html">
+                                <h3>Log out</h3>
+                            </a>
+                            <span class="icon-log-out ti-shift-right-alt ms-2"></span>
+                        </div>
+                    </ul>
+                    <div class="navbar-icon mb-2 d-none d-lg-block js-open-profile js-close-profile">
+                        <button class="icon-user ti-user"></button>
+                        <div class="more ti-angle-down"></div>
+                        <a class="user-menu" href="../index.html">
+                            <p class="h2 mb-1 black" style="color: #000 !important;">Log out</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content container-fluid justify-content-center">
+        <div class="row gy-2">
+            <div class="finance col-md-6 ms--4 p-3">
+                <h1>Finance</h1>
+                <div class="income">
+                    <h2>Income</h2>
+                    <div class="content">
+                        <h2>Today: <span class="today-money">10000$</span></h2>
+                        <div class="content">
+                            <h3>Daily income: <span class="daily-income">2000$</span></h3>
+                            <h3>Monthly income: <span class="monthly-income">2000$</span></h3>
+                            <h3>Yearly income: <span class="yearly-income">2000$</span></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="expense">
+                    <h2>Expense</h2>
+                    <div class="content">
+                        <h2>Today: <span class="today-money">$</span></h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Table: 2000$</li>
+                            <li class="list-group-item">Cup: 2000$</li>
+                            <li class="list-group-item">Chair: 2000$</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="employee-item col-md-6">
+                <div class="tm"></div>
+                <div class="employee p-3">
+                    <h1>Employee</h1>
+                    <div class="row m-0">
+                        <div class="col-xl-8"><h4 id="current-date"></h4></div>
+                        <div class="col-xl-4">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle mb-2" type="btn btn-primary dropdown-toggle" id="shiftDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Shift
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="shiftDropdown">
+                                    <li><p class="dropdown-item" onclick="displayShiftWork('Morning')">Morning</p></li>
+                                    <li><p class="dropdown-item" onclick="displayShiftWork('Afternoon')">Afternoon</p></li>
+                                    <li><p class="dropdown-item" onclick="displayShiftWork('Night')">Night</p></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                    <ul class="list-group list-group-flush" id="shift-list">
+                        <li class="list-group-item">Nguyen Thi A</li>
+                        <li class="list-group-item">Tran Van B</li>
+                        <li class="list-group-item">Cam Van C</li>
+                    </ul>
+                </div>
+                <div class="item p-3 mt-2">
+                    <h1>Item</h1>
+                    <div class="row">
+                        <div class="col">
+                            <h2>Drink</h2>
+                            <span class="drink">21</span>
+                        </div>
+                        <div class="col ms-2">
+                            <h2>Cake</h2>
+                            <span class="cake">10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openProlile = document.querySelector('.js-open-profile');
+        const modal = document.querySelector('.user-menu');
+        const stopModal = document.querySelector('.js-close-profile')
+        const closeModal = document.querySelector('body');
+        function showMenu() {
+            modal.classList.add('open');
+        }
+        function hideMenu() {
+            modal.classList.remove('open');
+        }
+        closeModal.addEventListener('click', hideMenu);
+        openProlile.addEventListener('click', showMenu);
+        stopModal.addEventListener('click', function (event) {
+            event.stopPropagation();
+        })
+    </script>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

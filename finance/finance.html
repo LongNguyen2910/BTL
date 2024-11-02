@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance</title>
+    <link rel="icon" href="../assets/img/coffee.png" type="image/x-icon" />
+    <link rel="stylesheet" href="finance.css">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid justify-content-center">
+            <div class="row">
+                <a class="navbar-brand col-2" href="../dashboard/dashboard.html">
+                    <img src="../assets/img/logo.jpg" alt="Logo image" class="logo-image">
+                </a>
+                <button class="navbar-toggler col-3 offset-6" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse col-8" id="collapsibleNavbar">
+                    <ul class="navbar-nav me-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../dashboard/dashboard.html">
+                                <h3>Dashboard</h3>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../finance/finance.html">
+                                <h3>Finance</h3>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../employee/Employees-List.html">
+                                <h3>Employee</h3>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../item/item.html">
+                                <h3>Item</h3>
+                            </a>
+                        </li>
+                        <div class="navbar-toggler align-items-center" data-bs-toggle="collapse"
+                            data-bs-target="#collapsibleNavbar">
+                            <a class="nav-link" href="../index.html">
+                                <h3>Log out</h3>
+                            </a>
+                            <span class="icon-log-out ti-shift-right-alt ms-2"></span>
+                        </div>
+                    </ul>
+                    <div class="navbar-icon mb-2 d-none d-lg-block js-open-profile js-close-profile">
+                        <button class="icon-user ti-user"></button>
+                        <div class="more ti-angle-down"></div>
+                        <a class="user-menu" href="../index.html">
+                            <p class="h2 mb-1 black" style="color: #000 !important;">Log out</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main container-fluid">
+        <h1 class="text-center mt-2">Finance</h1>
+        <div class="row wrapper">
+            <div class="nav row">
+                <div class="col-6 text-center h2 left-tab mb-0 p-1" onclick="showTab('income')" style="cursor: pointer;">Income</div>
+                <div class="col-6 text-center h2 right-tab mb-0 p-1" onclick="showTab('expense')" style="cursor: pointer;">Expense</div>
+            </div>
+            <div class="income p-0" style="display: block;">
+                <div class="content row text-center mt-2" style="max-height: 900px; overflow-y: auto;">
+                    <table id="income-finance" class="table table-responsive table-hover table-borderless mh-25">
+                        <tr>
+                            <th class="col-3">Date</th>
+                            <th class="col-4">Income</th>
+                            <th class="col-4">Note</th>
+                            <th class="col-1"></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="add row text-center mt-0 mb-3">
+                    <div class="col-3">
+                        <div class="button add-button ti-plus" onclick="Add()"></div>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+            <div class="expense p-0" style="display: none;">
+                <div class="content row text-center mt-2" style="max-height: 900px; overflow-y: auto;">
+                    <table id="expense-finance" class="table table-responsive table-hover table-borderless mh-25">
+                        <tr>
+                            <th class="col-3">Date</th>
+                            <th class="col-4">Expense</th>
+                            <th class="col-4">Note</th>
+                            <th class="col-1"></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="add row text-center mt-0 mb-3">
+                    <div class="col-3">
+                        <div class="button add-button ti-plus" onclick="Add()"></div>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+            <div class="row statics p-1">
+                <div class="col p-0">
+                    <div class="row container-mt-8">
+                        <h4 class="col-4">Month: </h4>
+                        <select id="monthlyIncomeDropdown" class="form-select col-8" style="width: auto;" onchange="displayTotalIncome()">
+                            <option selected>Select a month</option>
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                    </div>
+                    <div class="row mt-2">
+                        <h4 class="col-4">Total:</h4>
+                        <h3 class="col-8" id="totalIncome"></h3>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <div class="row">
+                        <h4 class="col">Year:</h4>
+                        <h4 id="currentYear" class="col"></h4>
+                    </div>
+                    <div class="row mt-2">
+                        <h4 class="col">Total:</h4>
+                        <h3 class="col" id="totalYear"></h3>
+                    </div>
+                </div>
+                <div class="col row align-items-center button modify gx-5">
+                    <div class="col text-center edit mb-0">
+                        <h5 onclick="Edit()">Edit</h5>
+                    </div>
+                    <div class="col text-center save mb-0">
+                        <h5 onclick="Save()">Save</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tab) {
+            const incomeTab = document.querySelector('.income');
+            const expenseTab = document.querySelector('.expense');
+
+            if (tab === 'income') {
+                incomeTab.style.display = 'block';
+                expenseTab.style.display = 'none';
+            } else if (tab === 'expense') {
+                incomeTab.style.display = 'none';
+                expenseTab.style.display = 'block';
+            }
+        }
+
+        const openProlile = document.querySelector('.js-open-profile');
+        const modal = document.querySelector('.user-menu');
+        const stopModal = document.querySelector('.js-close-profile');
+        const closeModal = document.querySelector('body');
+        function showMenu() {
+            modal.classList.add('open');
+        }
+        function hideMenu() {
+            modal.classList.remove('open');
+        }
+        closeModal.addEventListener('click', hideMenu);
+        openProlile.addEventListener('click', showMenu);
+        stopModal.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    </script>
+
+    <script src="finance.js"></script>
+
+</body>
+
+</html>
